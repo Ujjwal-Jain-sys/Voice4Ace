@@ -74,4 +74,33 @@ Inside the `backend/` directory, build the custom model using the included `mode
 cd backend
 ollama create voice4ace -f modelfile
 ```
-*(Or ensure `gemma4` is pulled and running
+*(Or ensure `gemma4` is pulled and running via `ollama run gemma4`.)*
+
+### 3. Start the FastAPI Backend
+In the `backend/` folder, install the Python dependencies and start the Uvicorn server:
+```bash
+pip install -r requirements.txt
+uvicorn main:app --reload --port 8000
+```
+*The backend API will run at `http://localhost:8000` (Interactive Swagger docs at `http://localhost:8000/docs`).*
+
+### 4. Start the React + Three.js Frontend
+Open a new terminal in the `frontend/` directory:
+```bash
+cd frontend
+npm install
+npm run dev
+```
+*Open `http://localhost:5173` in your browser to interact with **Ace Bot** and analyze your voice!*
+
+---
+
+## 👨‍💻 Contributors
+
+* **Ujjwal Jain** — *Architecture, Audio DSP Pipeline, 3D Integration & Full-Stack Development* — [@Ujjwal-Jain-sys](https://github.com/Ujjwal-Jain-sys)
+
+---
+
+## 📜 License
+
+Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for full details.
