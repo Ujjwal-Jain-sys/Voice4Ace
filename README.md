@@ -29,4 +29,4 @@ Voice4Ace captures short vocal inputs, extracts acoustic and musical features (p
    npm run dev
 
 ## 📜 License
-This project is licensed under the MIT License - see the [LICENSE file](https://github.com/Ujjwal-Jain-sys/Voice4Ace/LICENSE) for details.
+This project is licensed under the MIT License - see the [LICENSE file](https://github.com/Ujjwal-Jain-sys/Voice4Ace/blob/main/LICENSE) for details.
