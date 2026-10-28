@@ -1,32 +1,77 @@
-# Voice4Ace 🎙️🤖
+# 🎙️ Voice4Ace — 30-Second Vocal DNA Analyzer & AI Song Matcher
 
-An intelligent vocal DNA analyzer and song-matching web platform featuring an interactive 3D mascot, Ace Bot. Built for the hackathon.
+[![MLH Hackathon](https://img.shields.io/badge/MLH-Hackathon_Submission-E73427?style=for-the-badge)](https://mlh.io)
+[![License: MIT](https://img.shields.io/badge/License-MIT-10B981?style=for-the-badge)](LICENSE)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white)](https://threejs.org/)
+[![Ollama](https://img.shields.io/badge/Ollama-Gemma_4-FF6F00?style=for-the-badge)](https://ollama.com/)
 
-## 🚀 Overview
-Voice4Ace captures short vocal inputs, extracts acoustic and musical features (pitch, timbre, spectral metrics) using Librosa, and passes them to a recommendation pipeline to map vocal signatures to compatible songs. The interface incorporates an interactive 3D companion rendered with Three.js.
+> **Discover the mathematical blueprint of your voice in 30 seconds.**  
+> **Voice4Ace** captures a 30-second vocal sample, extracts acoustic biomarkers using **Librosa**, and pairs your unique vocal profile with tailored song recommendations using a custom-configured **Ollama (Gemma 4)** model—all guided by **Ace Bot**, an interactive 3D mascot built with **Three.js**.
+
+---
+
+## ✨ Key Features
+
+* **⏱️ 30-Second Vocal DNA Profiling:** Captures vocal audio and uses **Librosa** to extract fundamental frequency ($F_0$), vocal range, timbre brightness (spectral centroid), pitch stability, and MFCC acoustic signatures.
+* **🤖 Interactive 3D Mascot (Ace Bot):** A real-time 3D companion rendered with **Three.js** that reacts dynamically to voice input, processing states, and vocal results.
+* **🧠 Custom Ollama Modelfile Integration:** Uses a specialized `modelfile` built on **Gemma 4** to translate raw DSP audio metrics into human-readable vocal archetypes and song matches locally.
+* **⚡ Full-Stack Vite + FastAPI Architecture:** Low-latency asynchronous **FastAPI** backend (`main.py`) paired with a responsive **React + TypeScript + Vite** frontend.
+
+---
 
 ## 🛠️ Tech Stack
-- **Frontend:** React, TypeScript, Three.js / React Three Fiber, Tailwind CSS
-- **Backend:** Python, FastAPI, Uvicorn
-- **Audio Analysis:** Librosa, NumPy, SoundFile
-- **Inference & AI:** Ollama / Local LLM Pipeline
 
-## 📁 Project Structure
-- `/frontend` - Web client and 3D mascot interface
-- `/backend` - FastAPI endpoints and audio feature extraction pipeline
+| Layer | Technologies Used |
+| :--- | :--- |
+| **Frontend & 3D** | React, TypeScript, Vite, Three.js, Lucide React, CSS3 |
+| **Backend API** | Python, FastAPI, Uvicorn |
+| **Audio Signal Processing** | Librosa, NumPy, SoundFile |
+| **Local AI Inference** | Ollama (`gemma4` with custom `modelfile`) |
+| **Deployment & Tooling** | Vercel (Frontend), Git, Oxlint |
 
-## ⚙️ Running Locally
-1. **Backend:**
-   ```bash
-   cd backend
-   pip install -r requirements.txt
-   uvicorn main:app --reload
+---
 
-2. **Frontend:**
-   ```Bash
-   cd frontend
-   npm install
-   npm run dev
+## 📂 Project Structure
 
-## 📜 License
-This project is licensed under the MIT License - see the [LICENSE file](https://github.com/Ujjwal-Jain-sys/Voice4Ace/blob/main/LICENSE) for details.
+```text
+Voice4Ace/
+├── backend/
+│   ├── main.py              # FastAPI server, Librosa DSP pipeline & Ollama API integration
+│   ├── modelfile            # Custom Ollama Modelfile (vocal coach system prompt & parameters)
+│   └── requirements.txt     # Python backend dependencies
+├── frontend/
+│   ├── src/                 # React + TypeScript components & Three.js Ace Bot 3D scene
+│   ├── index.html           # Main HTML entry point
+│   ├── package.json         # Frontend scripts and dependencies
+│   ├── tsconfig.json        # TypeScript compiler configuration
+│   └── vite.config.ts       # Vite bundler configuration
+├── .gitignore
+├── LICENSE
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started (Local Setup)
+
+### Prerequisites
+* **Python** (3.10+)
+* **Node.js** (v18+)
+* **Ollama** installed locally ([ollama.com](https://ollama.com/))
+
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/Ujjwal-Jain-sys/Voice4Ace.git](https://github.com/Ujjwal-Jain-sys/Voice4Ace.git)
+cd Voice4Ace
+```
+
+### 2. Configure the Custom Ollama Model
+Inside the `backend/` directory, build the custom model using the included `modelfile`:
+```bash
+cd backend
+ollama create voice4ace -f modelfile
+```
+*(Or ensure `gemma4` is pulled and running
